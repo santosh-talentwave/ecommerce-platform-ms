@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="first_name",  nullable = false, length = 100)
@@ -27,7 +27,7 @@ public class User {
     @Column(unique = true,  nullable = false, length = 100)
     private String username;
 
-    @Column(  nullable = false, length = 255)
+    @Column(  nullable = false)
     private String password;
 
     @Column( nullable = false, unique = true,  length = 150)
