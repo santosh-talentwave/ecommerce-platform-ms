@@ -10,6 +10,7 @@ import java.time.LocalDate;
 public record UserUpdateRequest (
         @Size(max = 100)
         String firstName,
+
         @Size(max = 100)
         String lastName,
 
