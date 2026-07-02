@@ -41,7 +41,10 @@ public record UserRequest(
 
         @Schema(example = "Mael/Female", maxLength = 20, description = "Gender of the user.")
         @Size(max = 20)
-        String gender
+        String gender,
+
+         @Schema(example = "ROLE_ADMIN", description = "Role name of the user.")
+         String roleName
 ) {
 
 }
