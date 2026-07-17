@@ -30,7 +30,7 @@ class UserServiceImplTest {
 
     @Test
     void createUser_savesAndReturnsResponse() {
-        UserRequest req = new UserRequest("John", "Doe", "jdoe", "pass", "j@d.com", LocalDate.of(1990,1,1), "12345", "Male");
+        UserRequest req = new UserRequest("John", "Doe", "jdoe", "pass", "j@d.com", LocalDate.of(1990,1,1), "12345", "Male", "ADMIN_ROLE");
         User toSave = User.builder()
                 .firstName(req.firstName())
                 .lastName(req.lastName())
@@ -68,7 +68,7 @@ class UserServiceImplTest {
     void updateUser_whenNotFound_throws() {
         when(userRepository.findById(10L)).thenReturn(Optional.empty());
 
-        UserUpdateRequest update = new UserUpdateRequest("A","B","ab@c.com", LocalDate.of(1995,5,5), "99999");
+        UserUpdateRequest update = new UserUpdateRequest("A","B","ab@c.com", LocalDate.of(1995,5,5), "99999", "","ADMIN_ROLE");
 
         UserNotFoundException ex = assertThrows(UserNotFoundException.class, () -> userService.updateUser(10L, update));
         assertTrue(ex.getMessage().contains("User not found with id"));
@@ -86,7 +86,7 @@ class UserServiceImplTest {
                 .dob(LocalDate.of(1980,1,1))
                 .build();
 
-        UserUpdateRequest update = new UserUpdateRequest("NewFirst", null, "new@e.com", LocalDate.of(1985,2,2), "222");
+        UserUpdateRequest update = new UserUpdateRequest("NewFirst", null, "new@e.com", LocalDate.of(1985,2,2), "222", "", "ADMIN_ROLE");
 
         when(userRepository.findById(2L)).thenReturn(Optional.of(existing));
         when(userRepository.save(any(User.class))).thenAnswer(inv -> inv.getArgument(0));

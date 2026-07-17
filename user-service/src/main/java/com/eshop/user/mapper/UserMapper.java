@@ -3,6 +3,7 @@ package com.eshop.user.mapper;
 import com.eshop.user.dto.UserRequest;
 import com.eshop.user.dto.UserResponse;
 import com.eshop.user.dto.UserUpdateRequest;
+import com.eshop.user.model.Role;
 import com.eshop.user.model.User;
 
 public final class UserMapper {
@@ -33,7 +34,8 @@ public final class UserMapper {
                 user.getEmail(),
                 user.getDob(),
                 user.getPhoneNo(),
-                user.getGender()
+                user.getGender(),
+                user.getRoles().stream().map(Role::getName).findFirst().orElse(null)
         );
     }
 

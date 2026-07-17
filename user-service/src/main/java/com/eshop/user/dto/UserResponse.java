@@ -29,7 +29,10 @@ public record UserResponse (
         @Schema(example = "123456",  description = "Phone no of the user.")
         String phoneNo,
 
-        @Schema(example = "Mal/Female", description = "Gender of the user.")
-        String gender
+        @Schema(example = "Male/Female", description = "Gender of the user.")
+        String gender,
+
+        @Schema(example = "ROLE_ADMIN", description = "Role name of the user.")
+        String roleName
 ) {
 }

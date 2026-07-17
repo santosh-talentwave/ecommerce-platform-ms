@@ -231,7 +231,8 @@ public class UserServiceTest {
                 "john@gmail.com",
                 LocalDate.of(2000, 10, 1),
                 "99999",
-                "Male"
+                "Male",
+                "ADMIN_ROLE"
         );
     }
 
@@ -241,7 +242,9 @@ public class UserServiceTest {
                 "Smith",
                 "john@gmail.com",
                 LocalDate.of(2000, 10, 1),
-                "99999"
+                "99999",
+                "",
+                "ADMIN_ROLE"
         );
     }
 
@@ -255,7 +258,8 @@ public class UserServiceTest {
                 "john@gmail.com",
                 LocalDate.of(2000, 10, 1),
                 "99999",
-                "Male"
+                "Male",
+                "ADMIN_ROLE"
         );
     }
 }

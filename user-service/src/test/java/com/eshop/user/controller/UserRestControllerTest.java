@@ -57,6 +57,7 @@ class UserRestControllerTest {
                 LocalDate.of(1990, 5, 15),
                 "123456789",
                 "Male"
+                ,"ADMIN_ROLE"
         );
 
         userResponse = new UserResponse(
@@ -68,7 +69,8 @@ class UserRestControllerTest {
                 "john@gmail.com",
                 LocalDate.of(1990, 5, 15),
                 "123456789",
-                "Male"
+                "Male",
+                "ADMIN_ROLE"
         );
 
         userUpdateRequest = new UserUpdateRequest(
@@ -76,7 +78,9 @@ class UserRestControllerTest {
                 "Smith",
                 "jane@gmail.com",
                 LocalDate.of(1992, 3, 20),
-                "9999999"
+                "9999999",
+                "",
+                "ADMIN_ROLE"
         );
     }
 
@@ -114,7 +118,8 @@ class UserRestControllerTest {
                 "john@gmail.com",
                 LocalDate.of(1990, 5, 15),
                 "123456789",
-                "Male"
+                "Male",
+                 "ADMIN_ROLE"
         );
 
         // Act & Assert
@@ -137,7 +142,8 @@ class UserRestControllerTest {
                 "invalid-email",  // Invalid email format
                 LocalDate.of(1990, 5, 15),
                 "123456789",
-                "Male"
+                "Male",
+                 "ADMIN_ROLE"
         );
 
         // Act & Assert
@@ -160,7 +166,8 @@ class UserRestControllerTest {
                 "john@gmail.com",
                 LocalDate.of(2030, 5, 15),  // Future date
                 "123456789",
-                "Male"
+                "Male",
+                 "ADMIN_ROLE"
         );
 
         // Act & Assert
@@ -187,7 +194,8 @@ class UserRestControllerTest {
                 "jane@gmail.com",
                 LocalDate.of(1992, 3, 20),
                 "9999999",
-                "Female"
+                "Female",
+                 "ADMIN_ROLE"
         );
 
         when(userService.updateUser(anyLong(), any(UserUpdateRequest.class))).thenReturn(updatedResponse);
@@ -215,7 +223,9 @@ class UserRestControllerTest {
                 "Smith",
                 "invalid-email",  // Invalid email
                 LocalDate.of(1992, 3, 20),
-                "9999999"
+                "9999999",
+                 "",
+                 "ADMIN_ROLE"
         );
 
         // Act & Assert
@@ -236,7 +246,9 @@ class UserRestControllerTest {
                 "Smith",
                 "jane@gmail.com",
                 LocalDate.of(2030, 3, 20),  // Future date
-                "9999999"
+                "9999999",
+                 "",
+                 "ADMIN_ROLE"
         );
 
         // Act & Assert
@@ -326,7 +338,8 @@ class UserRestControllerTest {
                 "john@gmail.com",
                 LocalDate.of(1990, 5, 15),
                 "123456789",
-                "Male"
+                "Male",
+                 "ADMIN_ROLE"
         );
 
          UserResponse user2 = new UserResponse(
@@ -338,7 +351,8 @@ class UserRestControllerTest {
                 "jane@gmail.com",
                 LocalDate.of(1992, 3, 20),
                 "9999999",
-                "Female"
+                "Female",
+                 "ADMIN_ROLE"
         );
 
         List<UserResponse> userList = Arrays.asList(user1, user2);
@@ -387,7 +401,8 @@ class UserRestControllerTest {
                         "jane@gmail.com",
                         LocalDate.of(1992, 3, 20),
                         "9999999",
-                        "Female"
+                        "Female",
+                        "ADMIN_ROLE"
                 ),
                 new UserResponse(
                         3L,
@@ -398,7 +413,8 @@ class UserRestControllerTest {
                         "bob@gmail.com",
                         LocalDate.of(1988, 7, 10),
                         "555555555",
-                        "Male"
+                        "Male",
+                        "ADMIN_ROLE"
                 )
         );
 
